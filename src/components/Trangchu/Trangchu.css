@@ -1,0 +1,23 @@
+.content .new-products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content .new-products p {
+    font-weight: 500;
+}
+
+.content .new-products h4 {
+    margin: 30px 0;
+}
+
+.content .new-products caption {
+    text-align: center;
+}
+
+.content .new-products .products {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+}

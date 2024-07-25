@@ -3,11 +3,36 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Copool from './components/Copool/Copool';
+import Colip from './components/Colip/Colip';
+import Trangchu from './components/Trangchu/Trangchu';
+import Banbida from './components/Banbida/Banbida';
+import Ngon from './components/Ngon/Ngon';
+import Phanhay from './components/Phanhay/Phanhay';
+import Phukien from './components/Phukien/Phukien';
+import Tintuc from './components/Tintuc/Tintuc';
+import Admin from './components/Admin/Admin';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} >
+          <Route path="/" index element={<Trangchu />} />
+          <Route path="banbida" element={<Banbida />} />
+          <Route path="copool" element={<Copool />} />
+          <Route path="colip" element={<Colip />} />
+          <Route path="ngon" element={<Ngon />} />
+          <Route path="phanhay" element={<Phanhay />} />
+          <Route path="phukien" element={<Phukien />} />
+          <Route path="tintuc" element={<Tintuc />} />
+
+        </Route>
+        <Route path="admin" element={<Admin />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
