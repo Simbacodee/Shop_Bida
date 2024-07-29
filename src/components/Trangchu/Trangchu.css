@@ -1,23 +1,38 @@
-.content .new-products {
+.content-products .products {
+    width: 80%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 auto;
 }
 
-.content .new-products p {
+.content .content-products p {
     font-weight: 500;
 }
 
-.content .new-products h4 {
+.content .content-products h4 {
     margin: 30px 0;
 }
 
-.content .new-products caption {
+.content .content-products .caption {
     text-align: center;
 }
 
-.content .new-products .products {
-    width: 80%;
-    display: flex;
-    justify-content: space-around;
+
+.content-products .products {
+    text-align: center;
+}
+
+.content-products .products .products-item {
+    margin-bottom: 20px;
+}
+
+.content-products .products .products-item .card-text {
+    color: #ff2a2d;
+}
+
+.content .banner img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
