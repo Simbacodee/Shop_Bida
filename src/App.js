@@ -1,4 +1,6 @@
 import './App.css';
+import ScrollBack from './components/BackToTop/ScrollBack';
+import Carousel from './components/Carousel/Carousel';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 
@@ -15,7 +17,9 @@ const App = () => {
           <Outlet />
         </div>
       </div>
+      <Carousel />
       <hr />
+      <ScrollBack />
       <div className='footer-container'>
         <Footer />
       </div>

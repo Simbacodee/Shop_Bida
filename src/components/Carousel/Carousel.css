@@ -1,0 +1,17 @@
+.caption {
+    text-align: center;
+}
+
+.brand {
+    display: flex;
+    justify-content: space-around;
+}
+
+.brand img {
+    width: 176px;
+    height: 176px;
+}
+
+.brands {
+    margin: 50px 0;
+}

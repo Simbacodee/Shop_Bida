@@ -78,11 +78,14 @@ const Header = () => {
                         <Nav.Link href="#deets">GIỎ HÀNG / 0đ <FontAwesomeIcon icon={faShoppingCart} /></Nav.Link>
                         <div className='search'><FontAwesomeIcon icon={faSearch} /></div>
                     </Nav>
-                    {/* <Nav>
-                        <NavLink to="/admin" className='nav-link'>ADMIN</NavLink>
-                    </Nav> */}
+
                 </Navbar.Collapse>
+
             </Container>
+
+            <div className='admin'><Nav>
+                <NavLink to="/admin" className='nav-link admin-nav'>ĐĂNG NHẬP</NavLink>
+            </Nav> </div>
         </Navbar>
 
     );

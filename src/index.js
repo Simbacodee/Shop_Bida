@@ -14,6 +14,11 @@ import Phanhay from './components/Phanhay/Phanhay';
 import Phukien from './components/Phukien/Phukien';
 import Tintuc from './components/Tintuc/Tintuc';
 import Admin from './components/Admin/Admin';
+import ManageItem from './components/Admin/ManageItem';
+import Create from './components/Admin/Create';
+// import ManageItem from './components/Admin/Content/ManageItem';
+// import DashBoard from './components/Admin/Content/DashBoard';
+// import AdminNew from './components/AdminNew/Admin';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -28,9 +33,12 @@ root.render(
           <Route path="phanhay" element={<Phanhay />} />
           <Route path="phukien" element={<Phukien />} />
           <Route path="tintuc" element={<Tintuc />} />
-
         </Route>
-        <Route path="admin" element={<Admin />} />
+        <Route path="admin" element={<Admin />} >
+          {/* <Route index element={<DashBoard />} /> */}
+          <Route path="manage_item" element={<ManageItem />} />
+          <Route path="create" element={<Create />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

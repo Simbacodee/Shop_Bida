@@ -28,3 +28,14 @@
     border-bottom: 3px solid #1e73be;
     padding-bottom: 3px;
 }
+
+.admin-nav {
+    color: #000 !important;
+    font-weight: 500 !important;
+    margin-right: 20px;
+    margin-bottom: 46px;
+}
+
+.admin {
+    font-size: 10px;
+}

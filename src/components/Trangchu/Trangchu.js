@@ -336,7 +336,6 @@ const Trangchu = (props) => {
                 </div>
                 <div className='banner'><img src={banner8} /></div>
             </div>
-            {/* <CommonCarousels /> */}
         </>
 
     );

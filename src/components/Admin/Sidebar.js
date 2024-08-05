@@ -17,6 +17,7 @@ import { GiEightBall } from "react-icons/gi";
 import { MdDashboard } from "react-icons/md";
 
 import './Sidebar.scss';
+import { Link } from 'react-router-dom';
 
 
 const SideBar = (props) => {
@@ -64,6 +65,7 @@ const SideBar = (props) => {
                             <MenuItem> Quản lý đơn hàng</MenuItem>
                             <MenuItem > Quản lý khách hàng</MenuItem>
                             <MenuItem> Quản lý mặt hàng</MenuItem>
+                            <Link to="/admin/manage_item" />
                         </SubMenu>
 
                     </Menu>
@@ -83,7 +85,7 @@ const SideBar = (props) => {
                             rel="noopener noreferrer"
                         >
                             <span style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
-                                &#169; Hoàng Sao Billỉads
+                                &#169; Hoàng Sao Billiards
                             </span>
                         </a>
                     </div>
