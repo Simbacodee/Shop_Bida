@@ -14,11 +14,12 @@ import Phanhay from './components/Phanhay/Phanhay';
 import Phukien from './components/Phukien/Phukien';
 import Tintuc from './components/Tintuc/Tintuc';
 import Admin from './components/Admin/Admin';
-import ManageItem from './components/Admin/ManageItem';
+import Home from './components/Admin/Home';
+import Read from './components/Admin/Read';
 import Create from './components/Admin/Create';
-// import ManageItem from './components/Admin/Content/ManageItem';
-// import DashBoard from './components/Admin/Content/DashBoard';
-// import AdminNew from './components/AdminNew/Admin';
+import Edit from './components/Admin/Edit';
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -35,9 +36,10 @@ root.render(
           <Route path="tintuc" element={<Tintuc />} />
         </Route>
         <Route path="admin" element={<Admin />} >
-          {/* <Route index element={<DashBoard />} /> */}
-          <Route path="manage_item" element={<ManageItem />} />
+          <Route path="home" element={<Home />} />
+          <Route path="read/:id" element={<Read />} />
           <Route path="create" element={<Create />} />
+          <Route path="edit/:id" element={<Edit />} />
         </Route>
       </Routes>
     </BrowserRouter>

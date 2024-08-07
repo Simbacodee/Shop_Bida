@@ -3,11 +3,11 @@ import ExampleCarouselImage from './ExampleCarouselImage';
 import Card from 'react-bootstrap/Card';
 import './Trangchu.css';
 import hinhanh from '../../img/Athena_1.jpg'
-import { useState } from 'react';
+// import { useState } from 'react';
 import CommonCarousels from '../Common_carousels/CommonCarousels';
 
-// import React, { useState, useEffect } from "react";
-// import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 const banner1 = require('../../Assets/Trangchu/banner_1.jpg');
 const banner2 = require('../../Assets/Trangchu/banner_2.jpg');
 const banner3 = require('../../Assets/Trangchu/banner_3.jpg');
@@ -26,6 +26,14 @@ const Trangchu = (props) => {
         { id: 5, name: 'tyyy', price: 5555, img: hinhanh },
         // { id: 6, name: 'tyyy', price: 6666, img: hinhanh }
     ])
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://localhost:8081/')
+            .then(res => setData(res.data))
+            .catch(err => console.log(err));
+    }, []);
+    const filteredItems = data.filter(item => item.id === 19);
     return (
         <>
             <div className='carousels'>
@@ -65,6 +73,7 @@ const Trangchu = (props) => {
                             )
                         })}
                     </div>
+
                 </div>
                 {/* Bàn Bida Aplus */}
                 <div className='content-products'>

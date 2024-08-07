@@ -6,7 +6,7 @@ const ExampleCarouselImage = ({ src, alt }) => {
     return (
         <img
             src={src}
-            alt={alt}
+            // alt={alt}
             style={{ width: '100%', height: 'auto' }}
         />
     );

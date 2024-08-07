@@ -65,7 +65,7 @@ const SideBar = (props) => {
                             <MenuItem> Quản lý đơn hàng</MenuItem>
                             <MenuItem > Quản lý khách hàng</MenuItem>
                             <MenuItem> Quản lý mặt hàng</MenuItem>
-                            <Link to="/admin/manage_item" />
+                            <Link to="/admin/home" />
                         </SubMenu>
 
                     </Menu>
