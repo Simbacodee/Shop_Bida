@@ -14,8 +14,9 @@ const Home = () => {
 
     const handleDelete = (id) => {
         axios.delete(`http://localhost:8081/delete/${id}`)
-            .then(res => {
-                window.location.reload();
+            .then(() => {
+                // Cập nhật danh sách sau khi xóa
+                setData(data.filter(item => item.id !== id));
             })
             .catch(err => console.log(err));
     };
@@ -37,7 +38,6 @@ const Home = () => {
                                         <th scope="col">Price</th>
                                         <th scope="col">Image</th>
                                         <th scope="col">Category</th>
-                                        <th scope="col">Brand</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
@@ -49,16 +49,9 @@ const Home = () => {
                                                 <td>{item.name}</td>
                                                 <td>{item.description}</td>
                                                 <td>{item.price}</td>
-                                                {/* <td>
-                                                    {item.image ? (
-                                                        <img src={item.image} alt="Item" style={{ maxWidth: '100px', maxHeight: '100px', objectFit: 'cover' }} />
-                                                    ) : (
-                                                        'No image'
-                                                    )}
-                                                </td> */}
                                                 <td>{item.image}</td>
                                                 <td>{item.category_id}</td>
-                                                <td>{item.brand_id}</td>
+                                                {/* <td>{item.brand_id}</td> */}
                                                 <td>
                                                     <Link to={`/admin/read/${item.id}`} className='btn btn-sm btn-info'>Read</Link>
                                                     <Link to={`/admin/edit/${item.id}`} className='btn btn-sm btn-primary'>Edit</Link>
