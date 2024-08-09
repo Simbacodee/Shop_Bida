@@ -45,7 +45,7 @@ const Header = () => {
                         </NavDropdown>
 
                         <NavDropdown title={<span onClick={handleTitleClickCues}>CƠ POOL</span>} id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Dòng cơ How</NavDropdown.Item>
+                            <NavDropdown.Item as={NavLink} to="/howpool">Dòng cơ How</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="#action/3.1">Dòng cơ Rhino</NavDropdown.Item>
                             <NavDropdown.Divider />

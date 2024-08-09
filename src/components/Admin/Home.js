@@ -5,12 +5,35 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     const [data, setData] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    const [itemsPerPage] = useState(7); // Số lượng mặt hàng trên mỗi trang
 
     useEffect(() => {
-        axios.get('http://localhost:8081/')
-            .then(res => setData(res.data))
-            .catch(err => console.log(err));
-    }, []);
+        fetchData(currentPage);
+    }, [currentPage]);
+
+    const fetchData = async (page) => {
+        try {
+            const response = await axios.get('http://localhost:8081/api/items', {
+                params: {
+                    page: page,
+                    limit: itemsPerPage
+                }
+            });
+            setData(response.data.items);
+            setCurrentPage(response.data.currentPage);
+            setTotalPages(response.data.totalPages);
+        } catch (error) {
+            console.error('Error fetching items:', error);
+        }
+    };
+
+    const handlePageChange = (page) => {
+        if (page >= 1 && page <= totalPages) {
+            setCurrentPage(page);
+        }
+    };
 
     const handleDelete = (id) => {
         axios.delete(`http://localhost:8081/delete/${id}`)
@@ -55,13 +78,30 @@ const Home = () => {
                                                 <td>
                                                     <Link to={`/admin/read/${item.id}`} className='btn btn-sm btn-info'>Read</Link>
                                                     <Link to={`/admin/edit/${item.id}`} className='btn btn-sm btn-primary'>Edit</Link>
-                                                    <button onClick={() => handleDelete(item.id)} className="btn btn-sm btn-danger" >Delete</button>
+                                                    <button onClick={() => handleDelete(item.id)} className="btn btn-sm btn-danger">Delete</button>
                                                 </td>
                                             </tr>
                                         );
                                     })}
                                 </tbody>
                             </table>
+                            <div className="pagination">
+                                <button
+                                    onClick={() => handlePageChange(currentPage - 1)}
+                                    disabled={currentPage === 1}
+                                    className="btn btn-primary"
+                                >
+                                    Previous
+                                </button>
+                                <span>Page {currentPage} of {totalPages}</span>
+                                <button
+                                    onClick={() => handlePageChange(currentPage + 1)}
+                                    disabled={currentPage === totalPages}
+                                    className="btn btn-primary"
+                                >
+                                    Next
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

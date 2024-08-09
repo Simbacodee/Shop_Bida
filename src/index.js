@@ -18,6 +18,7 @@ import Home from './components/Admin/Home';
 import Read from './components/Admin/Read';
 import Create from './components/Admin/Create';
 import Edit from './components/Admin/Edit';
+import HowPool from './components/HowPool/HowPool';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -34,6 +35,8 @@ root.render(
           <Route path="phanhay" element={<Phanhay />} />
           <Route path="phukien" element={<Phukien />} />
           <Route path="tintuc" element={<Tintuc />} />
+          <Route path="howpool" element={<HowPool />} />
+
         </Route>
         <Route path="admin" element={<Admin />} >
           <Route path="home" element={<Home />} />

@@ -1,9 +1,34 @@
 .content-products .products {
     width: 80%;
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    gap: 20px;
+    /* Khoảng cách giữa các sản phẩm */
     margin: 0 auto;
+}
+
+.card {
+    width: 18rem;
+    /* Kích thước cố định cho card */
+    height: 100%;
+    /* Chiều cao bằng nhau */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 286px;
+    /* Chiều cao cố định cho hình ảnh */
+    object-fit: cover;
+    /* Đảm bảo hình ảnh phù hợp với kích thước */
+}
+
+
+.products-item {
+    flex: 1 1 calc(20% - 20px);
+    /* 5 sản phẩm trên 1 hàng, trừ khoảng cách */
+    max-width: calc(20% - 20px);
 }
 
 .content .content-products p {
@@ -35,4 +60,20 @@
     width: 100%;
     height: auto;
     display: block;
+}
+
+/* CSS */
+.image-container {
+    overflow: hidden;
+    /* Giúp ẩn phần ảnh bị zoom ra ngoài khung chứa */
+}
+
+.image-container img {
+    transition: transform 0.3s ease;
+    /* Thêm hiệu ứng chuyển tiếp cho thuộc tính transform */
+}
+
+.image-container:hover img {
+    transform: scale(1.1);
+    /* Phóng to ảnh lên 10% khi hover */
 }
