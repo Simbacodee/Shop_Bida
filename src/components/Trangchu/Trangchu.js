@@ -12,7 +12,7 @@ import banner5 from '../../Assets/Trangchu/banner_5.jpg';
 import banner6 from '../../Assets/Trangchu/banner_6.jpg';
 import banner7 from '../../Assets/Trangchu/banner_7.jpg';
 import banner8 from '../../Assets/Trangchu/banner_8.jpg';
-
+import { Link } from "react-router-dom";
 const Trangchu = (props) => {
     const [data2, setData2] = useState([]);
     const [data4, setData4] = useState([]);
@@ -82,11 +82,12 @@ const Trangchu = (props) => {
                             <div className='products-item' key={item.id}>
                                 <Card style={{ width: '18rem' }}>
                                     <div className="image-container">
-                                        <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" />
+                                        <Link to={`/product/${item.id}`}> <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" /></Link>
                                     </div>
                                     <Card.Body>
                                         <Card.Title>{item.name}</Card.Title>
                                         <Card.Text>{formatCurrency(item.price)}</Card.Text>
+
                                     </Card.Body>
                                 </Card>
                             </div>
@@ -104,11 +105,12 @@ const Trangchu = (props) => {
                             <div className='products-item' key={item.id}>
                                 <Card style={{ width: '18rem' }}>
                                     <div className="image-container">
-                                        <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" />
+                                        <Link to={`/product/${item.id}`}> <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" /></Link>
                                     </div>
                                     <Card.Body>
                                         <Card.Title>{item.name}</Card.Title>
                                         <Card.Text>{formatCurrency(item.price)}</Card.Text>
+
                                     </Card.Body>
                                 </Card>
                             </div>
@@ -126,11 +128,12 @@ const Trangchu = (props) => {
                             <div className='products-item' key={item.id}>
                                 <Card style={{ width: '18rem' }}>
                                     <div className="image-container">
-                                        <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" />
+                                        <Link to={`/product/${item.id}`}> <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" /></Link>
                                     </div>
                                     <Card.Body>
                                         <Card.Title>{item.name}</Card.Title>
                                         <Card.Text>{formatCurrency(item.price)}</Card.Text>
+
                                     </Card.Body>
                                 </Card>
                             </div>
@@ -149,11 +152,12 @@ const Trangchu = (props) => {
                             <div className='products-item' key={item.id}>
                                 <Card style={{ width: '18rem' }}>
                                     <div className="image-container">
-                                        <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" />
+                                        <Link to={`/product/${item.id}`}> <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" /></Link>
                                     </div>
                                     <Card.Body>
                                         <Card.Title>{item.name}</Card.Title>
                                         <Card.Text>{formatCurrency(item.price)}</Card.Text>
+
                                     </Card.Body>
                                 </Card>
                             </div>
@@ -171,11 +175,12 @@ const Trangchu = (props) => {
                             <div className='products-item' key={item.id}>
                                 <Card style={{ width: '18rem' }}>
                                     <div className="image-container">
-                                        <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" />
+                                        <Link to={`/product/${item.id}`}> <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" /></Link>
                                     </div>
                                     <Card.Body>
                                         <Card.Title>{item.name}</Card.Title>
                                         <Card.Text>{formatCurrency(item.price)}</Card.Text>
+
                                     </Card.Body>
                                 </Card>
                             </div>
@@ -193,11 +198,12 @@ const Trangchu = (props) => {
                             <div className='products-item' key={item.id}>
                                 <Card style={{ width: '18rem' }}>
                                     <div className="image-container">
-                                        <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" />
+                                        <Link to={`/product/${item.id}`}> <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" /></Link>
                                     </div>
                                     <Card.Body>
                                         <Card.Title>{item.name}</Card.Title>
                                         <Card.Text>{formatCurrency(item.price)}</Card.Text>
+
                                     </Card.Body>
                                 </Card>
                             </div>
@@ -216,11 +222,12 @@ const Trangchu = (props) => {
                             <div className='products-item' key={item.id}>
                                 <Card style={{ width: '18rem' }}>
                                     <div className="image-container">
-                                        <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" />
+                                        <Link to={`/product/${item.id}`}> <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" /></Link>
                                     </div>
                                     <Card.Body>
                                         <Card.Title>{item.name}</Card.Title>
                                         <Card.Text>{formatCurrency(item.price)}</Card.Text>
+
                                     </Card.Body>
                                 </Card>
                             </div>
@@ -238,11 +245,12 @@ const Trangchu = (props) => {
                             <div className='products-item' key={item.id}>
                                 <Card style={{ width: '18rem' }}>
                                     <div className="image-container">
-                                        <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" />
+                                        <Link to={`/product/${item.id}`}> <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" /></Link>
                                     </div>
                                     <Card.Body>
                                         <Card.Title>{item.name}</Card.Title>
                                         <Card.Text>{formatCurrency(item.price)}</Card.Text>
+
                                     </Card.Body>
                                 </Card>
                             </div>
@@ -261,11 +269,12 @@ const Trangchu = (props) => {
                             <div className='products-item' key={item.id}>
                                 <Card style={{ width: '18rem' }}>
                                     <div className="image-container">
-                                        <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" />
+                                        <Link to={`/product/${item.id}`}> <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" /></Link>
                                     </div>
                                     <Card.Body>
                                         <Card.Title>{item.name}</Card.Title>
                                         <Card.Text>{formatCurrency(item.price)}</Card.Text>
+
                                     </Card.Body>
                                 </Card>
                             </div>
@@ -283,11 +292,12 @@ const Trangchu = (props) => {
                             <div className='products-item' key={item.id}>
                                 <Card style={{ width: '18rem' }}>
                                     <div className="image-container">
-                                        <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" />
+                                        <Link to={`/product/${item.id}`}> <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" /></Link>
                                     </div>
                                     <Card.Body>
                                         <Card.Title>{item.name}</Card.Title>
                                         <Card.Text>{formatCurrency(item.price)}</Card.Text>
+
                                     </Card.Body>
                                 </Card>
                             </div>
@@ -305,11 +315,12 @@ const Trangchu = (props) => {
                             <div className='products-item' key={item.id}>
                                 <Card style={{ width: '18rem' }}>
                                     <div className="image-container">
-                                        <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" />
+                                        <Link to={`/product/${item.id}`}> <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" /></Link>
                                     </div>
                                     <Card.Body>
                                         <Card.Title>{item.name}</Card.Title>
                                         <Card.Text>{formatCurrency(item.price)}</Card.Text>
+
                                     </Card.Body>
                                 </Card>
                             </div>
@@ -328,11 +339,12 @@ const Trangchu = (props) => {
                             <div className='products-item' key={item.id}>
                                 <Card style={{ width: '18rem' }}>
                                     <div className="image-container">
-                                        <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" />
+                                        <Link to={`/product/${item.id}`}> <Card.Img variant="top" src={`http://localhost:8081/images/${item.image}`} className="image-container" /></Link>
                                     </div>
                                     <Card.Body>
                                         <Card.Title>{item.name}</Card.Title>
                                         <Card.Text>{formatCurrency(item.price)}</Card.Text>
+
                                     </Card.Body>
                                 </Card>
                             </div>

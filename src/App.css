@@ -12,3 +12,10 @@ ul {
   list-style: none;
   padding-left: 0;
 }
+
+.dropdown-item.active,
+.dropdown-item:active {
+  color: var(--bs-dropdown-link-active-color);
+  text-decoration: none;
+  background-color: #fff !important;
+}

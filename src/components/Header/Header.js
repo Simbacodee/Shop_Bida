@@ -27,7 +27,7 @@ const Header = () => {
                     <Nav className="me-auto">
                         <NavLink to="/" className='nav-link'>TRANG CHỦ</NavLink>
                         <NavDropdown title={<span onClick={handleTitleClickTable}>BÀN BIDA APLUS</span>} id="basic-nav-dropdown" >
-                            <NavDropdown.Item href="#action/3.1" >Bàn Bida Aplus | S4 Plus (S4 King)</NavDropdown.Item>
+                            <NavDropdown.Item as={NavLink} to="/s4" >Bàn Bida Aplus | S4 Plus (S4 King)</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="#action/3.1">Bàn Bida Aplus | Athena</NavDropdown.Item>
                             <NavDropdown.Divider />
@@ -47,23 +47,23 @@ const Header = () => {
                         <NavDropdown title={<span onClick={handleTitleClickCues}>CƠ POOL</span>} id="basic-nav-dropdown">
                             <NavDropdown.Item as={NavLink} to="/howpool">Dòng cơ How</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.1">Dòng cơ Rhino</NavDropdown.Item>
+                            <NavDropdown.Item as={NavLink} to="/rhinopool">Dòng cơ Rhino</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.1">Dòng cơ Peri</NavDropdown.Item>
+                            <NavDropdown.Item as={NavLink} to="/peripool">Dòng cơ Peri</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.1">Dòng cơ Mezz</NavDropdown.Item>
+                            <NavDropdown.Item as={NavLink} to="/mezzpool">Dòng cơ Mezz</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.1">Dòng cơ Universal</NavDropdown.Item>
+                            <NavDropdown.Item as={NavLink} to="/universalpool">Dòng cơ Universal</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.1">Dòng cơ Cuetec</NavDropdown.Item>
+                            <NavDropdown.Item as={NavLink} to="/cuetecpool">Dòng cơ Cuetec</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.1">Dòng cơ Mit</NavDropdown.Item>
+                            <NavDropdown.Item as={NavLink} to="/mitpool">Dòng cơ Mit</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.1">Dòng cơ Predator</NavDropdown.Item>
+                            <NavDropdown.Item as={NavLink} to="/predatorpool">Dòng cơ Predator</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.1">Dòng cơ Focus</NavDropdown.Item>
+                            <NavDropdown.Item as={NavLink} to="/focuspool">Dòng cơ Focus</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.1">Dòng cơ Dufferin</NavDropdown.Item>
+                            <NavDropdown.Item as={NavLink} to="/dufferinpool">Dòng cơ Dufferin</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="#action/3.1">Cơ đã qua sử dụng</NavDropdown.Item>
                         </NavDropdown>
@@ -71,7 +71,7 @@ const Header = () => {
                         <NavLink to="/ngon" className='nav-link'>NGỌN - SHAFTS</NavLink>
                         <NavLink to="/phanhay" className='nav-link'>PHÁ - NHẢY</NavLink>
                         <NavLink to="/phukien" className='nav-link'>PHỤ KIỆN</NavLink>
-                        <NavLink to="/tintuc" className='nav-link'>TIN TỨC</NavLink>
+                        {/* <NavLink to="/tintuc" className='nav-link'>TIN TỨC</NavLink> */}
                         {/* <NavLink to="/admin" className='nav-link'>ADMIN</NavLink> */}
                     </Nav>
                     <Nav>

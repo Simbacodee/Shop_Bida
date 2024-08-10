@@ -1,10 +1,9 @@
-
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import Card from 'react-bootstrap/Card';
-import './Colip.css';
+import banner7 from '../../img/Focus-banner.jpg';
+import '../HowPool/HowPool.css';
 import { Link } from "react-router-dom";
-// import '../HowPool/HowPool.css';
 const formatCurrency = (amount) => {
     return new Intl.NumberFormat('vi-VN', {
         style: 'decimal',
@@ -12,27 +11,28 @@ const formatCurrency = (amount) => {
         maximumFractionDigits: 0
     }).format(amount);
 };
-const Colip = (props) => {
-    const [data4, setData4] = useState([]);
+
+const FocusPool = () => {
+    const [data25, setData25] = useState([]);
 
     useEffect(() => {
         axios.get('http://localhost:8081/api/items/categories', {
-            params: { categories: '4' }
+            params: { categories: '25' }
         })
             .then(res => {
                 const items = res.data;
-                setData4(items.filter(item => item.category_id === 4));
+                setData25(items.filter(item => item.category_id === 25));
             })
             .catch(err => console.log('Error fetching data:', err));
     }, []);
     return (
         <div>
             <div className='content-products'>
-                <div className="text">
-                    <p>Dòng cơ Rhino, 1 thương hiệu con của Mit Cues. Với giá thành đầy cạnh tranh và các mẫu cơ carbon đã được giới trẻ, đặc biệt là học sinh – sinh viên quan tâm.</p>
+                <div className='banner'>
+                    <img src={banner7} alt="How Cue Banner" />
                 </div>
                 <div className='products'>
-                    {data4.map((item) => (
+                    {data25.map((item) => (
                         <div className='products-item' key={item.id}>
                             <Card style={{ width: '18rem' }}>
                                 <div className="image-container">
@@ -51,4 +51,4 @@ const Colip = (props) => {
         </div>
     )
 }
-export default Colip;
+export default FocusPool;

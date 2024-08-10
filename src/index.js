@@ -12,13 +12,24 @@ import Banbida from './components/Banbida/Banbida';
 import Ngon from './components/Ngon/Ngon';
 import Phanhay from './components/Phanhay/Phanhay';
 import Phukien from './components/Phukien/Phukien';
-import Tintuc from './components/Tintuc/Tintuc';
+// import Tintuc from './components/Tintuc/Tintuc';
 import Admin from './components/Admin/Admin';
 import Home from './components/Admin/Home';
 import Read from './components/Admin/Read';
 import Create from './components/Admin/Create';
 import Edit from './components/Admin/Edit';
 import HowPool from './components/HowPool/HowPool';
+import RhinoPool from './components/Rhino/RhinoPool';
+import PeriPool from './components/Peri/PeriPool';
+import MezzPool from './components/Mezz/MezzPool';
+import Universal from './components/Universal/Universal';
+import CueTecPool from './components/Cuetec/CuetecPool';
+import MitPool from './components/Mit/MitPool';
+import PredatorPool from './components/Predator/PredatorPool';
+import FocusPool from './components/Focus/FocusPool';
+import DufferinPool from './components/Dufferin/DufferinPool';
+import ProDuctDetail from './components/ProductDetail/ProDuctDetail';
+import S4 from './components/S4Plus/S4';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -34,9 +45,19 @@ root.render(
           <Route path="ngon" element={<Ngon />} />
           <Route path="phanhay" element={<Phanhay />} />
           <Route path="phukien" element={<Phukien />} />
-          <Route path="tintuc" element={<Tintuc />} />
+          {/* <Route path="tintuc" element={<Tintuc />} /> */}
           <Route path="howpool" element={<HowPool />} />
-
+          <Route path="rhinopool" element={<RhinoPool />} />
+          <Route path="peripool" element={<PeriPool />} />
+          <Route path="mezzpool" element={<MezzPool />} />
+          <Route path="universalpool" element={<Universal />} />
+          <Route path="cuetecpool" element={<CueTecPool />} />
+          <Route path="mitpool" element={<MitPool />} />
+          <Route path="predatorpool" element={<PredatorPool />} />
+          <Route path="focuspool" element={<FocusPool />} />
+          <Route path="dufferinpool" element={<DufferinPool />} />
+          <Route path="/product/:id" element={<ProDuctDetail />} />
+          <Route path="s4" element={<S4 />} />
         </Route>
         <Route path="admin" element={<Admin />} >
           <Route path="home" element={<Home />} />

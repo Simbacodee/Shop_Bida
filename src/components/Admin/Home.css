@@ -1,0 +1,58 @@
+/* Home.css */
+.table-container {
+    margin: 20px;
+}
+
+.table {
+    margin-top: 20px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table th,
+.table td {
+    text-align: center;
+    padding: 15px;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table img {
+    max-width: 100px;
+    border-radius: 5px;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination .btn {
+    margin: 0 5px;
+}
+
+.pagination span {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+/* Home.css */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    /* Căn giữa các nút */
+    gap: 5px;
+    /* Khoảng cách giữa các nút */
+}
+
+.action-buttons .btn {
+    margin: 0;
+}

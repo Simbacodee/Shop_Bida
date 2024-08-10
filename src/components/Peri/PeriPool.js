@@ -1,10 +1,9 @@
-
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import Card from 'react-bootstrap/Card';
-import './Colip.css';
+import banner5 from '../../Assets/Trangchu/banner_5.jpg';
+import '../HowPool/HowPool.css';
 import { Link } from "react-router-dom";
-// import '../HowPool/HowPool.css';
 const formatCurrency = (amount) => {
     return new Intl.NumberFormat('vi-VN', {
         style: 'decimal',
@@ -12,27 +11,29 @@ const formatCurrency = (amount) => {
         maximumFractionDigits: 0
     }).format(amount);
 };
-const Colip = (props) => {
-    const [data4, setData4] = useState([]);
+const PeriPool = () => {
+    const [data19, setData19] = useState([]);
 
     useEffect(() => {
         axios.get('http://localhost:8081/api/items/categories', {
-            params: { categories: '4' }
+            params: { categories: '19' }
         })
             .then(res => {
                 const items = res.data;
-                setData4(items.filter(item => item.category_id === 4));
+                setData19(items.filter(item => item.category_id === 19));
             })
             .catch(err => console.log('Error fetching data:', err));
     }, []);
     return (
         <div>
+            <div className='banner'>
+                <p>Dòng cơ Peri được các Pro Player tại Việt Nam tin tưởng sử dụng như Kiên Pháp, Tuấn Kon, Thiện Lương, Nam Phạm…và quốc tế như Jason Shaw</p>
+                <img src={banner5} alt="How Cue Banner" />
+            </div>
             <div className='content-products'>
-                <div className="text">
-                    <p>Dòng cơ Rhino, 1 thương hiệu con của Mit Cues. Với giá thành đầy cạnh tranh và các mẫu cơ carbon đã được giới trẻ, đặc biệt là học sinh – sinh viên quan tâm.</p>
-                </div>
+
                 <div className='products'>
-                    {data4.map((item) => (
+                    {data19.map((item) => (
                         <div className='products-item' key={item.id}>
                             <Card style={{ width: '18rem' }}>
                                 <div className="image-container">
@@ -51,4 +52,4 @@ const Colip = (props) => {
         </div>
     )
 }
-export default Colip;
+export default PeriPool;
