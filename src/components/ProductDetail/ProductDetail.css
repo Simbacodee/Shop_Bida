@@ -1,27 +1,16 @@
 .detail {
     display: flex;
+    justify-content: center;
+    /* Căn giữa nội dung trong container */
     padding: 20px;
     background-color: #f9f9f9;
-}
-
-.img-detail {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.img-detail img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .content-detail {
     flex: 2;
     padding: 20px;
+    max-width: 600px;
+    /* Giới hạn độ rộng của nội dung */
 }
 
 .content-detail h4 {
@@ -38,6 +27,8 @@
 .content-detail p {
     margin-top: 10px;
     color: #555;
+    word-break: break-word;
+    /* Đảm bảo nội dung mô tả xuống hàng nếu cần */
 }
 
 .quantity {

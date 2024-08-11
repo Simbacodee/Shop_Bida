@@ -69,7 +69,7 @@ const Home = () => {
                                 <td>{item.price}</td>
                                 <td><img src={`http://localhost:8081/images/${item.image}`} alt={item.name} /></td>
                                 <td>{item.category_id}</td>
-                                <td className="action-buttons">
+                                <td className="action-buttons css-button">
                                     <Link to={`/admin/read/${item.id}`} className="btn btn-sm btn-info">Read</Link>
                                     <Link to={`/admin/edit/${item.id}`} className="btn btn-sm btn-primary">Edit</Link>
                                     <button onClick={() => handleDelete(item.id)} className="btn btn-sm btn-danger">Delete</button>

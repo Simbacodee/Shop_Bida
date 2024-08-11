@@ -1,0 +1,44 @@
+.product-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.card {
+    background-color: #f8f9fa;
+    /* Light background color */
+}
+
+.card-title {
+    color: #343a40;
+    /* Darker text color */
+}
+
+.card-subtitle {
+    color: #6c757d;
+    /* Muted text color */
+}
+
+.card-text {
+    font-size: 1.1rem;
+    /* Slightly larger text for description */
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.read {
+    display: flex;
+}
+
+.left {
+    width: 80%;
+}
+
+.right {
+    width: 120%;
+}

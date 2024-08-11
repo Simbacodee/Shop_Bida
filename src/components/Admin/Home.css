@@ -44,7 +44,7 @@
     margin: 0 10px;
 }
 
-/* Home.css */
+/* Action Buttons CSS */
 .action-buttons {
     display: flex;
     justify-content: center;
@@ -55,4 +55,13 @@
 
 .action-buttons .btn {
     margin: 0;
+    /* Đảm bảo kích thước nút đồng nhất */
+    padding: 0.375rem 0.75rem;
+    /* Padding cho btn-sm */
+    font-size: 0.875rem;
+    /* Kích thước chữ cho btn-sm */
+    line-height: 1.5;
+    /* Đường nét của chữ */
+    border-radius: 0.25rem;
+    /* Đường viền nút */
 }

@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Logo from '../../Assets/Logo.png'
 import './Header.css'
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faSearch } from '@fortawesome/free-solid-svg-icons';
 const Header = () => {
@@ -12,11 +12,11 @@ const Header = () => {
 
     const handleTitleClickTable = (e) => {
         e.preventDefault();
-        navigate('/banbida');
+        // navigate('/banbida');
     };
     const handleTitleClickCues = (e) => {
         e.preventDefault();
-        navigate('/copool');
+        // navigate('/copool');
     };
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
@@ -27,21 +27,21 @@ const Header = () => {
                     <Nav className="me-auto">
                         <NavLink to="/" className='nav-link'>TRANG CHỦ</NavLink>
                         <NavDropdown title={<span onClick={handleTitleClickTable}>BÀN BIDA APLUS</span>} id="basic-nav-dropdown" >
-                            <NavDropdown.Item as={NavLink} to="/s4" >Bàn Bida Aplus | S4 Plus (S4 King)</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/product/187" >Bàn Bida Aplus | S4 Plus (S4 King)</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.1">Bàn Bida Aplus | Athena</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/product/164">Bàn Bida Aplus | Athena</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.1">Bàn Bida Aplus 9023 | Series 6</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/product/188">Bàn Bida Aplus 9023 | Series 6</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.1">Bàn Bida Aplus | Premier</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/product/169">Bàn Bida Aplus | Premier</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.1">Bàn Bida Aplus | Special</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/product/189">Bàn Bida Aplus | Special</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.1">Bàn Bida Aplus | Chinese Pool (Dragon A380)</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/product/166">Bàn Bida Aplus | Chinese Pool (Dragon A380)</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.1">Bàn Bida Aplus | Carom 3C</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/product/165">Bàn Bida Aplus | Carom 3C</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.1">Bàn Bida Aplus | Libre</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/product/168">Bàn Bida Aplus | Libre</NavDropdown.Item>
                         </NavDropdown>
 
                         <NavDropdown title={<span onClick={handleTitleClickCues}>CƠ POOL</span>} id="basic-nav-dropdown">

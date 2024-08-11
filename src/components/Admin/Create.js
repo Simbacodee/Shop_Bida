@@ -1,10 +1,11 @@
+import axios from 'axios';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import './Create.css'; // Import CSS
 
 const Create = () => {
     const [values, setValues] = useState({
@@ -12,13 +13,27 @@ const Create = () => {
         description: "",
         price: "",
         category_id: "",
-        image: null // Đảm bảo đây là 'image'
+        image: null
     });
+
+    const [imagePreview, setImagePreview] = useState(null); // State để lưu preview hình ảnh
 
     const navigate = useNavigate();
 
     const handleFileChange = (e) => {
-        setValues({ ...values, image: e.target.files[0] });
+        const file = e.target.files[0];
+        setValues({ ...values, image: file });
+
+        // Tạo URL cho hình ảnh để xem trước
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImagePreview(reader.result);
+            };
+            reader.readAsDataURL(file);
+        } else {
+            setImagePreview(null);
+        }
     };
 
     const handleSubmit = async (e) => {
@@ -30,7 +45,7 @@ const Create = () => {
         formData.append('price', values.price);
         formData.append('category_id', values.category_id);
         if (values.image) {
-            formData.append('image', values.image); // Đảm bảo tên trường là 'image'
+            formData.append('image', values.image);
         }
 
         try {
@@ -47,14 +62,15 @@ const Create = () => {
     };
 
     return (
-        <div>
-            <Form className='form-group' onSubmit={handleSubmit}>
+        <div className='form-container'>
+            <Form onSubmit={handleSubmit}>
                 <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridName">
                         <Form.Label>Tên sản phẩm</Form.Label>
                         <Form.Control
                             value={values.name}
                             onChange={e => setValues({ ...values, name: e.target.value })}
+                            placeholder="Nhập tên sản phẩm"
                         />
                     </Form.Group>
 
@@ -63,6 +79,7 @@ const Create = () => {
                         <Form.Control
                             value={values.description}
                             onChange={e => setValues({ ...values, description: e.target.value })}
+                            placeholder="Nhập mô tả sản phẩm"
                         />
                     </Form.Group>
 
@@ -72,6 +89,7 @@ const Create = () => {
                             type="number"
                             value={values.price}
                             onChange={e => setValues({ ...values, price: e.target.value })}
+                            placeholder="Nhập giá sản phẩm"
                         />
                     </Form.Group>
                 </Row>
@@ -123,6 +141,12 @@ const Create = () => {
                     />
                 </Form.Group>
 
+                {imagePreview && (
+                    <div className="image-preview">
+                        <img src={imagePreview} alt="Preview" />
+                    </div>
+                )}
+
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
@@ -132,3 +156,4 @@ const Create = () => {
 }
 
 export default Create;
+
