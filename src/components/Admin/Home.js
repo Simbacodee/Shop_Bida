@@ -42,7 +42,13 @@ const Home = () => {
             })
             .catch(err => console.log(err));
     };
-
+    // Hàm định dạng tiền tệ
+    const formatCurrency = (amount) => {
+        return new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+        }).format(amount);
+    };
     return (
         <div className="table-container">
             <div className="bg-white rounded p-3 shadow-sm">
@@ -66,7 +72,7 @@ const Home = () => {
                                 <td>{item.id}</td>
                                 <td>{item.name}</td>
                                 <td>{item.description}</td>
-                                <td>{item.price}</td>
+                                <td>{formatCurrency(item.price)}</td>
                                 <td><img src={`http://localhost:8081/images/${item.image}`} alt={item.name} /></td>
                                 <td>{item.category_id}</td>
                                 <td className="action-buttons css-button">

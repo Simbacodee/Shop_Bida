@@ -26,7 +26,13 @@ const Read = () => {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
     if (!item) return <p>Không tìm thấy dữ liệu.</p>;
-
+    // Hàm định dạng tiền tệ
+    const formatCurrency = (amount) => {
+        return new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+        }).format(amount);
+    };
     return (
         <Container className="my-5">
             <Card.Body className="read">
@@ -39,7 +45,7 @@ const Read = () => {
                     {/* <Card.Subtitle className="mb-2 text-muted">Brand: {item.brand_id}</Card.Subtitle> */}
                     <Card.Text className="mt-3 mb-4">{item.description}</Card.Text>
                     <Card.Text>
-                        <strong>Gía: </strong>{item.price}đ
+                        <strong>Gía: </strong>{formatCurrency(item.price)}
                     </Card.Text>
                     <Link to='/admin/home'>
                         <Button variant="primary">Quay lại</Button>

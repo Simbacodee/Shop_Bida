@@ -12,15 +12,15 @@ const formatCurrency = (amount) => {
 };
 
 const Phanhay = (props) => {
-    const [data24, setData24] = useState([]);
+    const [data6, setData6] = useState([]);
 
     useEffect(() => {
         axios.get('http://localhost:8081/api/items/categories', {
-            params: { categories: '24' }
+            params: { categories: '6' }
         })
             .then(res => {
                 const items = res.data;
-                setData24(items.filter(item => item.category_id === 24));
+                setData6(items.filter(item => item.category_id === 6));
             })
             .catch(err => console.log('Error fetching data:', err));
     }, []);
@@ -34,7 +34,7 @@ const Phanhay = (props) => {
                     <img src={banner8} alt="How Cue Banner" />
                 </div>
                 <div className='products'>
-                    {data24.map((item) => (
+                    {data6.map((item) => (
                         <div className='products-item' key={item.id}>
                             <Card style={{ width: '18rem' }}>
                                 <div className="image-container">
@@ -42,7 +42,7 @@ const Phanhay = (props) => {
                                 </div>
                                 <Card.Body>
                                     <Card.Title>{item.name}</Card.Title>
-                                    <Card.Text>{formatCurrency(item.price)}</Card.Text>
+                                    <Card.Text>{formatCurrency(item.price)}đ</Card.Text>
 
                                 </Card.Body>
                             </Card>

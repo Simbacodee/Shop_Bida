@@ -2,27 +2,38 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './ProductDetail.css';
+import { toast } from 'react-toastify';
+import { useCart } from '../CartContext/CartContext';
+
+const formatCurrency = (amount) => {
+    return new Intl.NumberFormat('vi-VN', {
+        style: 'decimal',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+    }).format(amount);
+};
 
 const ProDuctDetail = () => {
-    const { id } = useParams();  // Lấy id từ URL
+    const { id } = useParams();
     const [product, setProduct] = useState(null);
     const [quantity, setQuantity] = useState(1);
+    const { addToCart } = useCart();
 
     useEffect(() => {
         axios.get(`http://localhost:8081/read/${id}`)
-            .then(res => {
-                setProduct(res.data[0]);
-            })
+            .then(res => setProduct(res.data[0]))
             .catch(err => console.log('Error fetching product:', err));
     }, [id]);
 
     const handleAddToCart = () => {
-        // Logic để thêm sản phẩm vào giỏ hàng
-        console.log(`Added ${quantity} of ${product.name} to cart`);
+        if (product) {
+            addToCart(product, quantity);
+            toast.success(`Added ${quantity} ${product.name} to cart!`);
+        }
     };
 
     const handleQuantityChange = (e) => {
-        setQuantity(e.target.value);
+        setQuantity(parseInt(e.target.value, 10));
     };
 
     if (!product) return <p>Loading...</p>;
@@ -34,7 +45,7 @@ const ProDuctDetail = () => {
             </div>
             <div className='content-detail'>
                 <h4>{product.name}</h4>
-                <p className='price'>Price: {product.price}</p>
+                <p className='price'>Price: {formatCurrency(product.price)}đ</p>
                 <p>{product.description}</p>
                 <div className='quantity'>
                     <label htmlFor='quantity'>Số lượng:</label>

@@ -39,7 +39,7 @@ const DufferinPool = () => {
                                 </div>
                                 <Card.Body>
                                     <Card.Title>{item.name}</Card.Title>
-                                    <Card.Text>{formatCurrency(item.price)}</Card.Text>
+                                    <Card.Text>{formatCurrency(item.price)}đ</Card.Text>
 
                                 </Card.Body>
                             </Card>

@@ -62,10 +62,23 @@ const SideBar = (props) => {
                             icon={<FaGem />}
                             title="Features"
                         >
-                            <MenuItem> Quản lý đơn hàng</MenuItem>
-                            <MenuItem > Quản lý khách hàng</MenuItem>
-                            <MenuItem> Quản lý mặt hàng</MenuItem>
-                            <Link to="/admin/home" />
+                            <MenuItem>
+                                <Link to="/admin/home" >
+                                    Quản lý mặt hàng
+                                </Link>
+                            </MenuItem>
+                            <MenuItem >
+                                <Link to="/admin/customer" >
+                                    Quản lý khách hàng
+                                </Link>
+                            </MenuItem>
+                            <MenuItem>
+                                <Link to="/admin/orderitem" >
+                                    Quản lý đơn hàng
+                                </Link>
+                            </MenuItem>
+
+
                         </SubMenu>
 
                     </Menu>

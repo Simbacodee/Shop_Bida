@@ -29,8 +29,12 @@ import PredatorPool from './components/Predator/PredatorPool';
 import FocusPool from './components/Focus/FocusPool';
 import DufferinPool from './components/Dufferin/DufferinPool';
 import ProDuctDetail from './components/ProductDetail/ProDuctDetail';
-import S4 from './components/S4Plus/S4';
-
+import ShoppingCart from './components/ShoppingCart/ShoppingCart';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ThanhToan from './components/ThanhToan/ThanhToan';
+import OrderItem from './components/Admin/OrderItem';
+import Customer from './components/Admin/Customer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -57,16 +61,22 @@ root.render(
           <Route path="focuspool" element={<FocusPool />} />
           <Route path="dufferinpool" element={<DufferinPool />} />
           <Route path="/product/:id" element={<ProDuctDetail />} />
-          <Route path="s4" element={<S4 />} />
+          <Route path="shoppingcart" element={<ShoppingCart />} />
+          <Route path="thanhtoan" element={<ThanhToan />} />
+
         </Route>
         <Route path="admin" element={<Admin />} >
           <Route path="home" element={<Home />} />
           <Route path="read/:id" element={<Read />} />
           <Route path="create" element={<Create />} />
           <Route path="edit/:id" element={<Edit />} />
+          <Route path="orderitem" element={<OrderItem />} />
+          <Route path="customer" element={<Customer />} />
         </Route>
       </Routes>
+      <ToastContainer />
     </BrowserRouter>
+
   </React.StrictMode>
 );
 

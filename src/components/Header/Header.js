@@ -75,7 +75,7 @@ const Header = () => {
                         {/* <NavLink to="/admin" className='nav-link'>ADMIN</NavLink> */}
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#deets">GIỎ HÀNG / 0đ <FontAwesomeIcon icon={faShoppingCart} /></Nav.Link>
+                        <NavLink to="/shoppingcart" className='nav-link'>GIỎ HÀNG  <FontAwesomeIcon icon={faShoppingCart} /></NavLink>
                         <div className='search'><FontAwesomeIcon icon={faSearch} /></div>
                     </Nav>
 
