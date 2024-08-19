@@ -17,6 +17,7 @@ const ShoppingCart = () => {
     return (
         <div className="cart">
             <h2>GIỎ HÀNG</h2>
+
             {cartItems.length === 0 ? (
                 <p>Your cart is empty</p>
             ) : (
@@ -38,6 +39,7 @@ const ShoppingCart = () => {
                 </NavLink>
             </div>
         </div>
+
     );
 };
 

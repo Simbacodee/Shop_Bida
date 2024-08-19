@@ -84,7 +84,7 @@ const Header = () => {
             </Container>
 
             <div className='admin'><Nav>
-                <NavLink to="/admin" className='nav-link admin-nav'>ĐĂNG NHẬP</NavLink>
+                <NavLink to="/login" className='nav-link admin-nav'>ĐĂNG NHẬP</NavLink>
             </Nav> </div>
         </Navbar>
 
