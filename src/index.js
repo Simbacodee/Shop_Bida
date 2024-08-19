@@ -36,6 +36,7 @@ import ThanhToan from './components/ThanhToan/ThanhToan';
 import OrderItem from './components/Admin/OrderItem';
 import Customer from './components/Admin/Customer';
 import LoginAdmin from './components/LoginAdmin/LoginAdmin';
+import Search from './components/Search/Search';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -64,6 +65,7 @@ root.render(
           <Route path="/product/:id" element={<ProDuctDetail />} />
           <Route path="shoppingcart" element={<ShoppingCart />} />
           <Route path="thanhtoan" element={<ThanhToan />} />
+          <Route path="search" element={<Search />} />
         </Route>
         <Route path="login" element={<LoginAdmin />} />
         <Route path="admin" element={<Admin />} >

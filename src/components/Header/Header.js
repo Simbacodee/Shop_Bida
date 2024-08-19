@@ -7,26 +7,55 @@ import './Header.css'
 import { NavLink, useNavigate, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faSearch } from '@fortawesome/free-solid-svg-icons';
+import React, { useState, useRef, useEffect } from 'react';
+import axios from 'axios';
 const Header = () => {
     const navigate = useNavigate();
+    const [searchText, setSearchText] = useState('');
+    const [searchResults, setSearchResults] = useState([]);
+    const searchRef = useRef(null);
 
-    const handleTitleClickTable = (e) => {
-        e.preventDefault();
-        // navigate('/banbida');
+    const handleSearchText = async (value) => {
+        setSearchText(value);
+        if (value.trim() === '') {
+            setSearchResults([]);
+            return;
+        }
+        try {
+            const response = await axios.get(`http://localhost:8081/api/items/search?q=${value}`);
+            setSearchResults(response.data);
+        } catch (error) {
+            console.error('Error searching items:', error);
+        }
     };
-    const handleTitleClickCues = (e) => {
-        e.preventDefault();
-        // navigate('/copool');
+
+    const handleSearchSelect = (itemId) => {
+        navigate(`/product/${itemId}`);
+        setSearchText('');
+        setSearchResults([]);
     };
+
+    const handleClickOutside = (event) => {
+        if (searchRef.current && !searchRef.current.contains(event.target)) {
+            setSearchResults([]);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
-            <Container>
+            <Container >
                 <Navbar.Brand to='/'><img src={Logo} width='200px' height='40px' /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <NavLink to="/" className='nav-link'>TRANG CHỦ</NavLink>
-                        <NavDropdown title={<span onClick={handleTitleClickTable}>BÀN BIDA APLUS</span>} id="basic-nav-dropdown" >
+                        <NavDropdown title="BÀN BIDA APLUS" id="basic-nav-dropdown">
                             <NavDropdown.Item as={Link} to="/product/187" >Bàn Bida Aplus | S4 Plus (S4 King)</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item as={Link} to="/product/164">Bàn Bida Aplus | Athena</NavDropdown.Item>
@@ -44,7 +73,7 @@ const Header = () => {
                             <NavDropdown.Item as={Link} to="/product/168">Bàn Bida Aplus | Libre</NavDropdown.Item>
                         </NavDropdown>
 
-                        <NavDropdown title={<span onClick={handleTitleClickCues}>CƠ POOL</span>} id="basic-nav-dropdown">
+                        <NavDropdown title="CƠ POOL" id="basic-nav-dropdown">
                             <NavDropdown.Item as={NavLink} to="/howpool">Dòng cơ How</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item as={NavLink} to="/rhinopool">Dòng cơ Rhino</NavDropdown.Item>
@@ -75,8 +104,27 @@ const Header = () => {
                         {/* <NavLink to="/admin" className='nav-link'>ADMIN</NavLink> */}
                     </Nav>
                     <Nav>
-                        <NavLink to="/shoppingcart" className='nav-link'>GIỎ HÀNG  <FontAwesomeIcon icon={faShoppingCart} /></NavLink>
-                        <div className='search'><FontAwesomeIcon icon={faSearch} /></div>
+                        <NavLink to="/shoppingcart" className='nav-link'>
+                            GIỎ HÀNG <FontAwesomeIcon icon={faShoppingCart} />
+                        </NavLink>
+                        <div className='search' ref={searchRef}>
+                            <input
+                                type="text"
+                                placeholder="Tìm kiếm"
+                                value={searchText}
+                                onChange={(e) => handleSearchText(e.target.value)}
+                            />
+                            {searchText && searchResults.length > 0 && (
+                                <ul className="search-results">
+                                    {searchResults.map(item => (
+                                        <li key={item.id} onClick={() => handleSearchSelect(item.id)}>
+                                            <img src={`http://localhost:8081/images/${item.image}`} alt={item.name} width="50" height="50" />
+                                            <span>{item.name}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
                     </Nav>
 
                 </Navbar.Collapse>

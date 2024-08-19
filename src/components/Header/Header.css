@@ -7,13 +7,97 @@
     padding-left: 15px;
     border-left: 1px solid rgba(0, 0, 0, 0.1);
     height: 27px;
-
-    @media (max-width: 768px) {
-
-        border-left: none;
-    }
+    position: relative;
+    /* Thêm thuộc tính này để cho phép căn chỉnh vị trí của danh sách kết quả */
 }
 
+.search input {
+    width: 200px;
+    /* Tăng kích thước để người dùng có thể nhập nhiều ký tự hơn */
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 5px;
+    /* Thêm padding để nội dung không bị chèn vào viền */
+}
+
+.search-results {
+    position: absolute;
+    /* Đặt vị trí tuyệt đối so với phần tử chứa */
+    top: 100%;
+    /* Đặt ngay dưới ô input */
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    max-height: 200px;
+    /* Giới hạn chiều cao danh sách kết quả */
+    overflow-y: auto;
+    /* Thêm thanh cuộn nếu danh sách quá dài */
+    z-index: 1000;
+    /* Đảm bảo danh sách nổi bật trên các phần tử khác */
+}
+
+.search-results li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.search-results li:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Phần CSS cho thanh tìm kiếm */
+.search {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-top: 6px;
+    margin-left: 10px;
+    padding-left: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    height: 27px;
+    position: relative;
+    /* Để danh sách kết quả không làm ảnh hưởng đến các phần tử khác */
+}
+
+.search input {
+    width: 150px;
+    /* Thay đổi kích thước nếu cần */
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 5px;
+    /* Thêm padding để nội dung không bị chèn vào viền */
+}
+
+.search-results {
+    position: absolute;
+    /* Đặt danh sách kết quả dưới ô input */
+    top: 100%;
+    /* Đặt ngay dưới ô input */
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    max-height: 200px;
+    /* Giới hạn chiều cao danh sách kết quả */
+    overflow-y: auto;
+    /* Thêm thanh cuộn nếu danh sách quá dài */
+    z-index: 1000;
+    /* Đảm bảo danh sách kết quả nổi bật trên các phần tử khác */
+}
+
+.search-results li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.search-results li:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Phần CSS cho Navbar và Menu */
 #basic-navbar-nav a {
     color: black;
     font-weight: 600;
@@ -38,4 +122,56 @@
 
 .admin {
     font-size: 10px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-top: 6px;
+    margin-left: 10px;
+    padding-left: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    height: 27px;
+    position: relative;
+}
+
+.search input {
+    width: 150px;
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.search-results li {
+    display: flex;
+    /* Sử dụng flex để căn chỉnh hình ảnh và tên sản phẩm */
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.search-results img {
+    width: 40px;
+    /* Điều chỉnh kích thước hình ảnh nếu cần */
+    height: 40px;
+    margin-right: 10px;
+    /* Khoảng cách giữa hình ảnh và tên sản phẩm */
+}
+
+.search-results li:hover {
+    background-color: rgba(0, 0, 0, 0.1);
 }
