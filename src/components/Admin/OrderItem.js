@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
+import './OrderItem.css'; // Đảm bảo bạn đã import file CSS
 
 const OrderItem = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        // Gọi API để lấy dữ liệu từ bảng orders
         const fetchOrders = async () => {
             try {
                 const response = await axios.get('http://localhost:8081/api/orders');
@@ -19,7 +20,6 @@ const OrderItem = () => {
         fetchOrders();
     }, []);
 
-    // Nhóm các mặt hàng theo đơn hàng
     const groupItemsByOrder = (orders) => {
         const grouped = {};
 
@@ -40,13 +40,34 @@ const OrderItem = () => {
 
         return Object.values(grouped);
     };
-    // Hàm định dạng tiền tệ
+
     const formatCurrency = (amount) => {
         return new Intl.NumberFormat('vi-VN', {
             style: 'currency',
             currency: 'VND',
         }).format(amount);
     };
+
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`http://localhost:8081/api/orders/${id}`);
+            setOrders(orders.filter(order => order.id !== id));
+        } catch (error) {
+            console.error('Error deleting order:', error);
+        }
+    };
+
+    const handleConfirm = async (id) => {
+        try {
+            await axios.put(`http://localhost:8081/api/orders/${id}/confirm`);
+            setOrders(orders.map(order =>
+                order.id === id ? { ...order, status: 'confirmed' } : order
+            ));
+        } catch (error) {
+            console.error('Error confirming order:', error);
+        }
+    };
+
     const groupedOrders = groupItemsByOrder(orders);
 
     return (
@@ -55,7 +76,7 @@ const OrderItem = () => {
             <Table striped bordered hover>
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Mã đơn hàng</th>
                         <th>Tên khách hàng</th>
                         <th>Địa chỉ</th>
                         <th>Số điện thoại</th>
@@ -63,6 +84,7 @@ const OrderItem = () => {
                         <th>Tổng hóa đơn</th>
                         <th>Ngày tạo đơn</th>
                         <th>Sản phẩm</th>
+                        <th>Hành động</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -81,6 +103,15 @@ const OrderItem = () => {
                                         {item.item_name} (Số lượng: {item.quantity})
                                     </div>
                                 ))}
+                            </td>
+                            <td>
+                                <div className="action-buttons">
+                                    <Button className="btn btn-custom-warning">Đang xử lý</Button>
+                                    <Button className="btn btn-primary">Đã giao</Button>
+                                    <Button className="btn btn-secondary">Đã hủy</Button>
+                                    <Button className="btn btn-danger" onClick={() => handleDelete(order.id)}>Xóa</Button>
+                                </div>
+
                             </td>
                         </tr>
                     ))}

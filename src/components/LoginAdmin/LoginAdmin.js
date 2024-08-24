@@ -52,7 +52,7 @@ const LoginAdmin = () => {
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                             {error && <Alert variant="danger">{error}</Alert>}
-                            <button className="submit" type="submit">LET'S GO</button>
+                            <button className="submit" type="submit">Log in</button>
                         </form>
                     </div>
                 </div>

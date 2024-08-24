@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet';
+
 const formatCurrency = (amount) => {
     return new Intl.NumberFormat('vi-VN', {
         style: 'decimal',
@@ -25,6 +27,9 @@ const MitPool = () => {
     }, []);
     return (
         <div>
+            <Helmet>
+                <title>Dòng cơ Mit </title>
+            </Helmet>
             <div className='content-products'>
                 <div className='banner'>
                     <p>Dòng cơ Mit Cue đến từ Đài Loan vốn được rất nhiều cơ thủ từ chuyên nghiệp tới nghiệp dư Việt Nam tin dùng với các dòng cơ MP, MC, MO…với giá thành hợp lý, chất lượng tuyệt vời</p>

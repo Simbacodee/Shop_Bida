@@ -19,3 +19,67 @@ ul {
   text-decoration: none;
   background-color: #fff !important;
 }
+
+/* .content {
+  position: relative;
+}
+
+.filter-items {
+  position: absolute;
+  right: 210px;
+  top: 374px;
+} */
+.filter-items {
+  display: flex;
+  justify-content: flex-end;
+  /* Đưa dropdown sang phải */
+  margin-bottom: 20px;
+  /* Khoảng cách dưới dropdown */
+  margin-right: 220px;
+}
+
+.banner+.content-products .filter-items {
+  margin-top: -20px;
+  /* Điều chỉnh khoảng cách phía trên khi có banner */
+}
+
+.filter-items {
+  display: flex;
+  justify-content: flex-end;
+  /* Đưa dropdown sang phải */
+  margin-bottom: 20px;
+  /* Khoảng cách dưới dropdown */
+}
+
+.filter-items .dropdown {
+  border: 1px solid #ccc;
+  /* Border cho dropdown */
+  border-radius: 4px;
+  /* Bo tròn các góc */
+  padding: 5px;
+  /* Khoảng cách bên trong border */
+  background-color: white;
+  /* Màu nền */
+}
+
+.filter-items .dropdown-toggle {
+  color: #333;
+  /* Màu chữ */
+  padding: 10px 20px;
+  /* Khoảng cách trong */
+}
+
+.filter-items .dropdown-menu {
+  border-radius: 4px;
+  /* Bo tròn góc của menu */
+  border: 1px solid #ccc;
+  /* Border cho menu */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  /* Đổ bóng cho menu */
+}
+
+.dropdown-menu.show {
+  position: absolute !important;
+  inset: 5px auto auto -6px !important;
+  transform: translate(5px, 51px);
+}

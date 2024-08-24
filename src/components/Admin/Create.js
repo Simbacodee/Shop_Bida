@@ -148,7 +148,7 @@ const Create = () => {
                 )}
 
                 <Button variant="primary" type="submit">
-                    Submit
+                    Lưu
                 </Button>
             </Form>
         </div>

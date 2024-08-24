@@ -13,6 +13,7 @@ import banner6 from '../../Assets/Trangchu/banner_6.jpg';
 import banner7 from '../../Assets/Trangchu/banner_7.jpg';
 import banner8 from '../../Assets/Trangchu/banner_8.jpg';
 import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet';
 const Trangchu = (props) => {
     const [data2, setData2] = useState([]);
     const [data4, setData4] = useState([]);
@@ -57,6 +58,9 @@ const Trangchu = (props) => {
 
     return (
         <>
+            <Helmet>
+                <title>Shop cơ bida và phụ kiện | Quản lý bởi Hoàng Sao</title>
+            </Helmet>
             <div className='carousels'>
                 <Carousel>
                     <Carousel.Item>

@@ -3,6 +3,7 @@ import axios from 'axios';
 import Card from 'react-bootstrap/Card';
 import banner7 from '../../Assets/Trangchu/banner_7.jpg';
 import '../HowPool/HowPool.css';
+import { Helmet } from 'react-helmet';
 import { Link } from "react-router-dom";
 const formatCurrency = (amount) => {
     return new Intl.NumberFormat('vi-VN', {
@@ -27,6 +28,9 @@ const PredatorPool = () => {
     }, []);
     return (
         <div>
+            <Helmet>
+                <title>Dòng cơ Predator </title>
+            </Helmet>
             <div className='content-products'>
                 <div className='banner'>
                     <img src={banner7} alt="How Cue Banner" />

@@ -4,7 +4,8 @@ import axios from 'axios';
 import Card from 'react-bootstrap/Card';
 import './Colip.css';
 import { Link } from "react-router-dom";
-// import '../HowPool/HowPool.css';
+import { Helmet } from 'react-helmet';
+
 const formatCurrency = (amount) => {
     return new Intl.NumberFormat('vi-VN', {
         style: 'decimal',
@@ -27,6 +28,9 @@ const Colip = (props) => {
     }, []);
     return (
         <div>
+            <Helmet>
+                <title>Cơ Lip/3C - Hoàng Sao Shop </title>
+            </Helmet>
             <div className='content-products'>
                 <div className="text">
                     <p>Dòng cơ Rhino, 1 thương hiệu con của Mit Cues. Với giá thành đầy cạnh tranh và các mẫu cơ carbon đã được giới trẻ, đặc biệt là học sinh – sinh viên quan tâm.</p>

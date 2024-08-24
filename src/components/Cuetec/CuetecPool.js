@@ -4,6 +4,8 @@ import Card from 'react-bootstrap/Card';
 import banner4 from '../../img/cuetec.jpg';
 import './Cuetec.css';
 import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet';
+
 const formatCurrency = (amount) => {
     return new Intl.NumberFormat('vi-VN', {
         style: 'decimal',
@@ -26,6 +28,9 @@ const CueTecPool = () => {
     }, []);
     return (
         <div>
+            <Helmet>
+                <title>Dòng cơ Cuetec </title>
+            </Helmet>
             <div className='content-products'>
                 <div className='bannerCuetec'>
                     <img src={banner4} alt="How Cue Banner" />

@@ -50,7 +50,9 @@ const Header = () => {
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container >
-                <Navbar.Brand to='/'><img src={Logo} width='200px' height='40px' /></Navbar.Brand>
+                <Navbar.Brand as={Link} to='/'>
+                    <img src={Logo} width='200px' height='40px' alt="Logo" />
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
@@ -140,3 +142,4 @@ const Header = () => {
 }
 
 export default Header;
+

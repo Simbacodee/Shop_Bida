@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet';
+
 const formatCurrency = (amount) => {
     return new Intl.NumberFormat('vi-VN', {
         style: 'decimal',
@@ -24,6 +26,9 @@ const formatCurrency = (amount) => {
     }, []);
     return (
         <div>
+            <Helmet>
+                <title>Phụ Kiện Bida chính hãng | Hoàng Sao Shop </title>
+            </Helmet>
             <div className='content-products'>
 
                 <div className='products'>

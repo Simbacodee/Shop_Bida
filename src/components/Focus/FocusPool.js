@@ -4,6 +4,8 @@ import Card from 'react-bootstrap/Card';
 import banner7 from '../../img/Focus-banner.jpg';
 import '../HowPool/HowPool.css';
 import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet';
+
 const formatCurrency = (amount) => {
     return new Intl.NumberFormat('vi-VN', {
         style: 'decimal',
@@ -27,6 +29,9 @@ const FocusPool = () => {
     }, []);
     return (
         <div>
+            <Helmet>
+                <title>Dòng cơ Focus </title>
+            </Helmet>
             <div className='content-products'>
                 <div className='banner'>
                     <img src={banner7} alt="How Cue Banner" />

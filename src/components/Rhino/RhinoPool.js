@@ -3,6 +3,7 @@ import axios from 'axios';
 import Card from 'react-bootstrap/Card';
 import './Rhino.css'
 import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet';
 const formatCurrency = (amount) => {
     return new Intl.NumberFormat('vi-VN', {
         style: 'decimal',
@@ -25,7 +26,9 @@ const RhinoPool = () => {
     }, []);
     return (
         <div>
-
+            <Helmet>
+                <title>Dòng cơ Rhino</title>
+            </Helmet>
             {/* Rhino */}
             <div className='content-products'>
                 <div className="text">

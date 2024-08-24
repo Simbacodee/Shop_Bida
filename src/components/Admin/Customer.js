@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
 
 const Customer = () => {
     const [orders, setOrders] = useState([]);
@@ -40,6 +41,7 @@ const Customer = () => {
 
         return Object.values(grouped);
     };
+
     // Hàm định dạng tiền tệ
     const formatCurrency = (amount) => {
         return new Intl.NumberFormat('vi-VN', {
@@ -47,6 +49,17 @@ const Customer = () => {
             currency: 'VND',
         }).format(amount);
     };
+
+    // Xóa đơn hàng
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`http://localhost:8081/api/orders/${id}`);
+            setOrders(orders.filter(order => order.id !== id));
+        } catch (error) {
+            console.error('Error deleting order:', error);
+        }
+    };
+
     const groupedOrders = groupItemsByOrder(orders);
 
     return (
@@ -55,14 +68,12 @@ const Customer = () => {
             <Table striped bordered hover>
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Mã khách hàng</th>
                         <th>Tên khách hàng</th>
                         <th>Địa chỉ</th>
                         <th>Số điện thoại</th>
                         <th>Email</th>
-                        {/* <th>Tổng hóa đơn</th>
-                        <th>Ngày tạo đơn</th>
-                        <th>Sản phẩm</th> */}
+                        <th>Hành động</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -73,15 +84,14 @@ const Customer = () => {
                             <td>{order.address}</td>
                             <td>{order.phone_number}</td>
                             <td>{order.email}</td>
-                            {/* <td>{formatCurrency(order.total_amount)}</td>
-                            <td>{new Date(order.created_at).toLocaleString()}</td>
                             <td>
-                                {order.items.map((item, index) => (
-                                    <div key={index}>
-                                        {item.item_name} (Số lượng: {item.quantity})
-                                    </div>
-                                ))}
-                            </td> */}
+                                <Button
+                                    variant="danger"
+                                    onClick={() => handleDelete(order.id)}
+                                >
+                                    Xóa
+                                </Button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>

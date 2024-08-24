@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet';
+
 const formatCurrency = (amount) => {
     return new Intl.NumberFormat('vi-VN', {
         style: 'decimal',
@@ -25,7 +27,9 @@ const MezzPool = () => {
 
     return (
         <div>
-
+            <Helmet>
+                <title>Dòng cơ Mezz </title>
+            </Helmet>
             <div className='banner'>
                 <p>Dòng cơ Mezz</p>
             </div>

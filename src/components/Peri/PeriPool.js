@@ -4,6 +4,8 @@ import Card from 'react-bootstrap/Card';
 import banner5 from '../../Assets/Trangchu/banner_5.jpg';
 import '../HowPool/HowPool.css';
 import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet';
+
 const formatCurrency = (amount) => {
     return new Intl.NumberFormat('vi-VN', {
         style: 'decimal',
@@ -26,6 +28,9 @@ const PeriPool = () => {
     }, []);
     return (
         <div>
+            <Helmet>
+                <title>Dòng cơ Peri </title>
+            </Helmet>
             <div className='banner'>
                 <p>Dòng cơ Peri được các Pro Player tại Việt Nam tin tưởng sử dụng như Kiên Pháp, Tuấn Kon, Thiện Lương, Nam Phạm…và quốc tế như Jason Shaw</p>
                 <img src={banner5} alt="How Cue Banner" />
